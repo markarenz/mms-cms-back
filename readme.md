@@ -19,33 +19,8 @@
 - Link the storage to public
   php artisan storage:link
 
-## Syncing storage between local & DV
-- From DV to local:
-rsync -zaP mbadmin@72.10.48.220:/var/www/vhosts/domain.com/test.domain.com/storage/app/public storage/app/
-
-- From local to DV (from root of project directory):
-rsync -zaP storage/app/public mbadmin@72.10.48.220:/var/www/vhosts/domain.com/test.domain.com/storage/app/
-
-
-
 ## Gulp
 - Run these commands from the project directory and not within vagrant ssh
 - Running through vagrant (homestead) takes a very long time
 - Also, it's ideal to run your gulp watch through a separate terminal
 
-cd ~/projects/mblaravel
-npm install gulp -g
-npm install gulp --save-dev
-npm install gulp-sass --save-dev
-npm install gulp-cssnano --save-dev
-npm install gulp-concat --save-dev
-npm install gulp-uglify --save-dev
-
-gulp watch
-
-Compiles Frontend CSS
-    SRC: public/css/scss/style.scss
-    DEST: public/css/style.css
-Compiles Frontend JS
-    SRC: public/js/partials/*.js
-    DEST: public/js/frontend.css
