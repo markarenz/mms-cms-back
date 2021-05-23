@@ -1,0 +1,25 @@
+
+$primary-font-stack: Raleway, Helvetica, Arial, sans;
+$headline-font-stack: "Roboto Slab", Helvetica, Arial, sans;
+
+$color-orange:#e7942c;
+$grey:#bbb;
+$grey-light:#ddd;
+$grey-dark:#555;
+$grey-darker:#333;
+$grey-darkest:#222;
+
+$red:#e3342f;
+$red-light:lighten( $red, 10% );
+$red-dark:darken( $red, 20% );
+
+$green:#38c172;
+$green-light:lighten( $green, 10% );
+$green-dark:darken( $green, 20% );
+
+$blue:#5d91f6;
+$blue-light:lighten( $blue, 10% );
+$blue-dark:darken( $blue, 20% );
+
+$orange:#f3652d;
+$orange-light:lighten( $orange, 10% );

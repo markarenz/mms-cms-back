@@ -1,0 +1,30 @@
+.btn{
+  text-transform: uppercase;
+}
+
+.btn-outline-danger{
+  background:$red-dark;
+  border-color:$red-light;
+  color:white!important;
+  &:hover{
+    background:$red;
+  }
+}
+
+.btn-outline-primary{
+  background:$blue-dark;
+  border-color:$blue-light;
+  color:white!important;
+  &:hover{
+    background:$blue;
+  }
+}
+
+.btn-outline-success{
+  background:$green-dark;
+  border-color:$green-light;
+  color:white!important;
+  &:hover{
+    background:$green;
+  }
+}

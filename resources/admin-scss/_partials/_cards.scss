@@ -1,0 +1,12 @@
+.card{
+  background:$grey-dark;
+  color:$grey-light;
+  .card-header{
+    background:$grey-dark;
+    color:$grey-light;
+  }
+  .card-body{
+    background:$grey-darkest;
+    color:$grey-light;
+  }
+}
