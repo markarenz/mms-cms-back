@@ -1,5 +1,11 @@
 # MMS BACKEND HEADLESS README
 
+## About MMS CMS Backend
+- This is the CMS for a headless website. It is not an API.
+- For added security and reliability, the frontend consumes the product of this app and not the API itself.
+- This is a Laravel app, so you'll need to get familiar with artisan commands, etc.
+- Since the structure is decoupled, you can run the backend on a local machine (with Docker or Vagrant) for increased security and simplicity
+
 ## Installing the app
 
 - Clone the repo
@@ -12,62 +18,6 @@
         - composer dump-autoload
 - Link the storage to public
   php artisan storage:link
-
-## Moving from dev to live
-
-> Note: by default SSH is not enabled on the DV server. In Plesk, Go into Web Hosting Access > Allow SSH over Bash
-
-- Migration setup in Plesk
-  - In Plesk, Make a backup of the live site & archive to Web Archive on local Deli server
-  - Back up live db & store on Web Archive on Deli server
-  - Make a new db for the live site & db user.
-  - Import dev site SQL
-- Copy the dev ENV file and update it with the above db info
-- Set up git push on live site
-  - SSH into the production server (LastPass)
-  - cd httpdocs
-  - mkdir project.git
-  - cd project.git
-  - git init --bare
-  - nano hooks/post-receive
-    #!/bin/bash
-    GIT_WORK_TREE=/var/www/vhosts/matchbookcreative.com/test.matchbookcreative.com git checkout -f
-  - chmod +x hooks/post-receive
-  - On local machine, add a remote with this URL:
-    ssh://mbadmin@matchbookcreative.com/var/www/vhosts/matchbookcreative.com/test.matchbookcreative.com/project.git
-
-  - Push the master to this remote
-- Add ENV to live site
-- SSH into live site again
-  - php composer update
-  - php artisan dump-autoload
-  - php artisan migrate:reset
-  - php artisan migrate
-  - php artisan db:seed
-- Migrate storage files manually (/public/storage)
-- Test live site
-
-
-## Migrating SQL from local to dev/live
-- On your local vagrant instance, vagrant ssh
-  - mysqldump --databases matchbook > tmp.sql
-  - scp tmp.sql mbadmin@72.10.48.220:/var/www/vhosts/matchbookcreative.com
-  - rm tmp.sql
-- ssh mbadmin@72.10.48.220
-  - sed -i 's/matchbook/mbc2019_dev/g' tmp.sql
-  - mysql -u mbc_2019_mysql -p mbc2019_dev < tmp.sql
-  - rm tmp.sql
-
-## Migrating SQL from DV to local
-- ssh mbadmin@72.10.48.220
-  - mysqldump -u mbc_2019_mysql --databases mbc2019_dev -p > tmp2.sql
-- On your local vagrant instance, vagrant ssh
-  - scp mbadmin@72.10.48.220:/var/www/vhosts/matchbookcreative.com/tmp2.sql tmp2.sql
-  - sed -i 's/mbc2019_dev/matchbook/g' tmp2.sql
-  - mysql matchbook < tmp2.sql
-  - rm tmp2.sql
-- on the remote SSH
-- rm tmp2.sql
 
 ## Syncing storage between local & DV
 - From DV to local:
