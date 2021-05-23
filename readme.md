@@ -21,10 +21,10 @@
 
 ## Syncing storage between local & DV
 - From DV to local:
-rsync -zaP mbadmin@72.10.48.220:/var/www/vhosts/matchbookcreative.com/test.matchbookcreative.com/storage/app/public storage/app/
+rsync -zaP mbadmin@72.10.48.220:/var/www/vhosts/domain.com/test.domain.com/storage/app/public storage/app/
 
 - From local to DV (from root of project directory):
-rsync -zaP storage/app/public mbadmin@72.10.48.220:/var/www/vhosts/matchbookcreative.com/test.matchbookcreative.com/storage/app/
+rsync -zaP storage/app/public mbadmin@72.10.48.220:/var/www/vhosts/domain.com/test.domain.com/storage/app/
 
 
 
