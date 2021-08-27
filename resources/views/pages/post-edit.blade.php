@@ -101,6 +101,7 @@
         <button type="button" class="btn btn-outline-danger" onclick="if (confirm('Are you sure you want to delete?')){$('#form-delete').submit();}">Delete</button>
         <button type="button" class="btn btn-outline-primary"onclick="$('#form-edit').submit();">Save</button>
     </div>
+    @include('partials.classes-for-posts')
 
   </div>
 </div><!-- /.row -->

@@ -74,6 +74,7 @@
     <div class="text-right">
         <button type="button" class="btn btn-outline-primary"onclick="$('#form-edit').submit();">Start</button>
     </div>
+    @include('partials.classes-for-posts')
 
   </div>
 </div><!-- /.row -->
